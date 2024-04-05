@@ -33,5 +33,13 @@ def count_words_and_sentences(file_path):
         print("Сталася помилка:", e)
 
 
+# Функція для створення тимчасового текстового файлу з вмістом для тестування
+def create_temp_file(content):
+    temp_file_path = 'temp_test_file.txt'
+    with open(temp_file_path, 'w', encoding='utf-8') as file:
+        file.write(content)
+    return temp_file_path
+
+
 if __name__ == "__main__":
     pytest.main()
