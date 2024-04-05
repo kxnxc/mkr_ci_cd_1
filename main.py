@@ -76,5 +76,15 @@ def test_with_separators_ok():
     os.remove(temp_file_path)
 
 
+def test_with_end_of_sentences_ok():
+    # Тестування, коли вміст файлу містить символи, що закінчують речення
+    content = "Це речення має крапку. Це речення має знак питання? Це речення має знак оклику!"
+    temp_file_path = create_temp_file(content)
+    num_words, num_sentences = count_words_and_sentences(temp_file_path)
+    assert num_words == 14
+    assert num_sentences == 3
+    os.remove(temp_file_path)
+
+
 if __name__ == "__main__":
     pytest.main()
