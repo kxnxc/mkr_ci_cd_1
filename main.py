@@ -60,5 +60,11 @@ def test_with_empty_file_ok():
     os.remove(temp_file_path)
 
 
+def test_with_nonexistent_file_exception():
+    # Тестування, коли файл не існує
+    ex_msg = count_words_and_sentences('nonexistent_file.txt')
+    assert ex_msg == "Файл не знайдено"
+
+
 if __name__ == "__main__":
     pytest.main()
