@@ -51,5 +51,14 @@ def test_with_sentences_ok():
     os.remove(temp_file_path)
 
 
+def test_with_empty_file_ok():
+    # Тестування, коли файл існує, але порожній
+    temp_file_path = create_temp_file('')
+    num_words, num_sentences = count_words_and_sentences(temp_file_path)
+    assert num_words == 0
+    assert num_sentences == 0
+    os.remove(temp_file_path)
+
+
 if __name__ == "__main__":
     pytest.main()
