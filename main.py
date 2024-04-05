@@ -41,5 +41,15 @@ def create_temp_file(content):
     return temp_file_path
 
 
+def test_with_sentences_ok():
+    # Тестування, коли файл існує і має вміст
+    content = "Це тестовий рядок. Це також! І знову."
+    temp_file_path = create_temp_file(content)
+    num_words, num_sentences = count_words_and_sentences(temp_file_path)
+    assert num_words == 7
+    assert num_sentences == 3
+    os.remove(temp_file_path)
+
+
 if __name__ == "__main__":
     pytest.main()
