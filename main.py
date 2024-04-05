@@ -66,5 +66,15 @@ def test_with_nonexistent_file_exception():
     assert ex_msg == "Файл не знайдено"
 
 
+def test_with_separators_ok():
+    # Тестування, коли вміст файлу містить розділювачі
+    content = "Слово1, слово2; слово3: слово4 слово5"
+    temp_file_path = create_temp_file(content)
+    num_words, num_sentences = count_words_and_sentences(temp_file_path)
+    assert num_words == 5
+    assert num_sentences == 1
+    os.remove(temp_file_path)
+
+
 if __name__ == "__main__":
     pytest.main()
